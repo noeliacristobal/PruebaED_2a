@@ -5,57 +5,74 @@ import java.util.List;
 
 public class Curso {
 	
-	private List<Persona> listaAlumnos;
+	/**
+	 * @author daw107 (noelia cristobal tapias)
+	 * 
+	 *
+	 */
 
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public void eliminarAlumno(String dni) throws Exception {
-		if(dni.length()==9) {//comprobar la longitud del dni
-			listaAlumnos.remove(new Persona(dni, "", "")); //solo hace falta el dni
-		}else {
-			throw new Exception("El dni no tiene la longitud adecuada");
-		}
-	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public void aniadirAlumno(Persona p) {
-		listaAlumnos.add(p);
-	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public Boolean estaRegistrado(String dni) {
-		int i =0;
-		Boolean encontrado=false;
-		while (!encontrado && i<listaAlumnos.size()) {
-			if(listaAlumnos.get(i).getDni().equals(dni)) {
-				encontrado=true;
+
+		
+		private List<Persona> listaAlumnos;
+
+		/**
+		 * metodo para eliminar un alumno introduciendo un dni con 9 caracteres
+		 * @param dni cada persona tendra un dni para diferenciarse de otra
+		 * @throws Exception cuando el dni no tiene 9 caracteres
+		 */
+		public void eliminarAlumno(String dni) throws Exception {
+			if(dni.length()==9) {//comprobar la longitud del dni
+				listaAlumnos.remove(new Persona(dni, "", "")); //solo hace falta el dni
+			}else {
+				throw new Exception("El dni no tiene la longitud adecuada");
 			}
-			i++;
 		}
-		return encontrado;
-	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public Curso() {
-		listaAlumnos= new ArrayList<Persona>();
-	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public Integer numeroAlumnos() {return listaAlumnos.size();}
-	
-	
-	public void mostrarTodos() {
-		for (Persona persona : listaAlumnos) {
-			System.out.println(persona);
+		
+		/**
+		 * Añadir alumno a la lista
+		 * @param p
+		 */
+		public void aniadirAlumno(Persona p) {
+			listaAlumnos.add(p);
+		}
+		
+		/**
+		 * Si la lista del alumno coincide con el dni, el alumno esta registrado
+		 * @param dni
+		 * @return trueo o false
+		 */
+		public Boolean estaRegistrado(String dni) {
+			int i =0;
+			Boolean encontrado=false;
+			while (!encontrado && i<listaAlumnos.size()) {
+				if(listaAlumnos.get(i).getDni().equals(dni)) {
+					encontrado=true;
+				}
+				i++;
+			}
+			return encontrado;
+		}
+		
+		/**
+		 * metodo para la lista del alumno
+		 */
+		public Curso() {
+			listaAlumnos= new ArrayList<Persona>();
+		}
+		
+		/**
+		 * 
+		 * @return este metodo nos devuelve la lista completa de los alumnos
+		 */
+		public Integer numeroAlumnos() {return listaAlumnos.size();}
+		
+		/**
+		 * metodo para mostrar toda la lista del alumnos
+		 */
+		public void mostrarTodos() {
+			for (Persona persona : listaAlumnos) {
+				System.out.println(persona);
+			}
 		}
 	}
-}
+

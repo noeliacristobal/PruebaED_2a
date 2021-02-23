@@ -8,59 +8,69 @@ public class Persona{
 	
 	public Persona() {}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 *  Constructores
+	 * @param dni
+	 * @param nombre
+	 * @param apellido1
+	 */
 	public Persona(String dni, String nombre, String apellido1) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 	}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * 
+	 * @return nos devuelve el dni de una persona
+	 */
 	public String getDni() {
 		return dni;
 	}
 	
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * Si termina en letra es dni, sino responde que el caracter introducido no es una letra
+	 * @param dni
+	 * @throws Exception: si no es una letra el ultimo caracter
+	 */
 	public void setDni(String dni) throws Exception {
 		//comprobacion de si el ultimo caracter es una letra
-		if(Character.isLetter(dni.charAt(dni.length()))) {
+		if(Character.isLetter(dni.charAt(dni.length()-1))) {
 			this.dni=dni;
 		}else {
 			throw new Exception("El ultimo caracter introducido no es una letra");
 		}
 	}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * 
+	 * @return devuelve el nombre
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * 
+	 * @return devuelve el apellido
+	 */
 	public String getApellido1() {
 		return apellido1;
 	}
 	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * 
+	 * @param apellido1
+	 */
 	public void setApellido1(String apellido1) {
 		this.apellido1 = apellido1;
 	}
@@ -95,5 +105,6 @@ public class Persona{
 		return "Persona [dni=" + dni + ", nombre=" + nombre + "]";
 	}
 	
+
 
 }
